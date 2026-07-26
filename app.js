@@ -1878,7 +1878,7 @@ function renderSidebar() {
 
         { page: "admin-use-cases", label: "Casos de uso", icon: "▦" },
 
-        { page: "admin-registry", label: "AI Agent Registry", icon: "AI" },
+        { page: "admin-registry", label: "AI Agent Registry", icon: "✦" },
 
         { page: "admin-exports", label: "Exportaciones", icon: "⇩" }
 
@@ -1890,7 +1890,7 @@ function renderSidebar() {
 
         { page: "group-dashboard", label: "Dashboard", icon: "⌂" },
 
-        { page: "wizard", label: "Mi AI Agent", icon: "AI" }
+        { page: "wizard", label: "Mi AI Agent", icon: "✦" }
 
     ];
 
