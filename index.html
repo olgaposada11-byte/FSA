@@ -1540,7 +1540,7 @@
 
  
 
-            <span>
+            <span id="wizardStatusBadgeLabel">
 
               Borrador
 
@@ -1553,6 +1553,18 @@
  
 
         </header>
+
+
+        <p
+          id="wizardLockedBanner"
+          class="form-lock-hint wizard-locked-banner"
+          hidden
+        >
+          Este asistente ya ha sido enviado y no se puede editar.
+          Si necesitas hacer cambios, pide al administrador que reabra
+          la edición desde su panel.
+        </p>
+
 
  
 
@@ -1869,7 +1881,7 @@
               class="form-lock-hint"
               hidden
             >
-              El nombre, la descripción, el problema y la complejidad vienen
+              La descripción, el problema y la complejidad vienen
               definidos por el caso de uso elegido y no se pueden editar.
               Si necesitas cambiarlos, selecciona "Otro caso de uso" en el
               paso anterior.
@@ -1989,51 +2001,12 @@
 
               <label
                 class="form-field"
-                for="agentInput"
-              >
-
-                <span class="form-label">
-                  Inputs principales
-                </span>
-
-                <textarea
-                  id="agentInput"
-                  name="agentInput"
-                  data-agent-field="inputs"
-                  rows="5"
-                  placeholder="Información, documentos o instrucciones que recibe el asistente."
-                ></textarea>
-
-              </label>
-
-
-              <label
-                class="form-field"
-                for="agentOutput"
-              >
-
-                <span class="form-label">
-                  Outputs principales
-                </span>
-
-                <textarea
-                  id="agentOutput"
-                  name="agentOutput"
-                  data-agent-field="outputs"
-                  rows="5"
-                  placeholder="Resultados, entregables o respuestas que genera."
-                ></textarea>
-
-              </label>
-
-
-              <label
-                class="form-field"
                 for="agentTools"
               >
 
                 <span class="form-label">
                   Herramientas utilizadas
+                  <span aria-hidden="true">*</span>
                 </span>
 
                 <textarea
@@ -2042,6 +2015,7 @@
                   data-agent-field="tools"
                   rows="5"
                   placeholder="Ej. Copilot Studio, ChatGPT, Python, Power Automate..."
+                  required
                 ></textarea>
 
               </label>
@@ -2054,6 +2028,7 @@
 
                 <span class="form-label">
                   Modelo o LLM
+                  <span aria-hidden="true">*</span>
                 </span>
 
                 <textarea
@@ -2062,6 +2037,7 @@
                   data-agent-field="llm"
                   rows="5"
                   placeholder="Ej. GPT-5, Azure OpenAI, Gemini..."
+                  required
                 ></textarea>
 
               </label>
@@ -2090,14 +2066,6 @@
           <!-- =================================================
                PASO 3: PROMPT
                ================================================= -->
-
-          <!-- =================================================
-
-               PASO 3: PROMPT
-
-               ================================================= -->
-
- 
 
           <section
 
@@ -3679,37 +3647,6 @@
 
  
 
- 
-
-              <label class="submission-confirmation">
-
- 
-
-                <input
-
-                  id="submissionConfirmationCheckbox"
-
-                  type="checkbox"
-
-                >
-
- 
-
-                <span>
-
-                  Confirmo que la información introducida es correcta y
-
-                  que no contiene datos personales, confidenciales o
-
-                  sensibles.
-
-                </span>
-
- 
-
-              </label>
-
- 
 
  
 
@@ -4174,34 +4111,6 @@
       </div>
 
  
-
- 
-
-      <label class="form-field conversation-notes-field">
-
- 
-
-        <span class="form-label">
-
-          Observaciones sobre el resultado
-
-        </span>
-
- 
-
-        <textarea
-
-          data-conversation-field="notes"
-
-          rows="3"
-
-          placeholder="Opcional: explica por qué esta conversación es relevante."
-
-        ></textarea>
-
- 
-
-      </label>
 
  
 
@@ -5687,7 +5596,7 @@
 
                 <th scope="col">
 
-                  AI Agent
+                  Asistente
 
                 </th>
 
@@ -7885,65 +7794,69 @@
 
           <article class="export-card">
 
- 
-
             <div
-
               class="export-card-icon"
-
               aria-hidden="true"
-
             >
-
-              { }
-
+              📝
             </div>
-
- 
 
             <div>
 
- 
-
               <h3>
-
-                JSON para GPT Evaluador
-
+                TXT de todos los asistentes
               </h3>
 
- 
-
               <p>
-
-                Contiene toda la información estructurada de los
-
-                asistentes enviados.
-
+                Un único fichero de texto con la ficha completa de cada
+                asistente enviado.
               </p>
-
- 
 
             </div>
 
- 
-
             <button
-
-              id="downloadEvaluatorJson"
-
+              id="downloadAllAssistantsTxt"
               class="button button-primary"
-
               type="button"
-
             >
-
-              Descargar JSON
-
+              Descargar TXT
             </button>
 
- 
+          </article>
+
+
+          <article class="export-card">
+
+            <div
+              class="export-card-icon"
+              aria-hidden="true"
+            >
+              📄
+            </div>
+
+            <div>
+
+              <h3>
+                PDF de todos los asistentes
+              </h3>
+
+              <p>
+                Un único PDF con la ficha completa de cada asistente
+                enviado, listo para compartir.
+              </p>
+
+            </div>
+
+            <button
+              id="downloadAllAssistantsPdf"
+              class="button button-primary"
+              type="button"
+            >
+              Descargar PDF
+            </button>
 
           </article>
+
 
  
 
